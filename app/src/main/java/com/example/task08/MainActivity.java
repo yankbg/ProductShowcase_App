@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -62,7 +63,14 @@ public class MainActivity extends AppCompatActivity implements ProductCardAdapte
 //    }
 @Override
 public void onItemClick(View view, int position) {
-    Toast.makeText(this, "You clicked " + myadapter.getItem(position).getName() + " on row number " + position, Toast.LENGTH_SHORT).show();
+//    Toast.makeText(this, "You clicked " + myadapter.getItem(position).getName() + " on row number " + position, Toast.LENGTH_SHORT).show();
+    Intent intent = new Intent(this,ProductDetailActivity.class);
+    intent.putExtra("product_name", myadapter.getItem(position).getName());
+    intent.putExtra("product_image", myadapter.getItem(position).getImgpath());
+    intent.putExtra("product_price", myadapter.getItem(position).getPrice());
+    intent.putExtra("product_rating", myadapter.getItem(position).getRating());
+    intent.putExtra("product_position", position);
+    startActivity(intent);
 }
 
 }

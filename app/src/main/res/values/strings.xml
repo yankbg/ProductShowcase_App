@@ -30,5 +30,15 @@
         <item>4</item>
         <item>4</item>
     </integer-array>
+    <string-array name="product_desc">
+        <item>A stylish two-door roadster with a 1.9L inline-4 engine, known for its elegant design and relaxed driving.</item>
+        <item>First of the W113 series, featuring a 2.3L inline-6 and the iconic concave “Pagoda” roof.</item>
+        <item>Legendary coupe with gullwing doors and fuel-injected 3.0L inline-6. A motorsport icon.</item>
+        <item>Top-tier R107 model with a 5.6L V8, automatic transmission, and luxury features.</item>
+        <item>Advanced roadster with electro-hydraulic roof, V6/V8/V12 options, and modern safety tech.</item>
+        <item>Sleek hardtop convertible with electronic braking and V6 to V12 engines.</item>
+        <item>Lightweight aluminum body, advanced suspension, and powerful AMG variants.</item>
+        <item>AMG-branded performance roadster with AWD, hybrid options, and cutting-edge tech.</item>
+    </string-array>
 
 </resources>
