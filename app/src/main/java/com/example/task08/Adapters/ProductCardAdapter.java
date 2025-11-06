@@ -23,7 +23,7 @@ public class ProductCardAdapter extends RecyclerView.Adapter<ProductCardAdapter.
     private static ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    ProductCardAdapter(Context context, List<ProductModel> productList) {
+    public ProductCardAdapter(Context context, List<ProductModel> productList) {
         this.mInflater = LayoutInflater.from(context);
         this.productList = productList;
     }
@@ -64,6 +64,7 @@ public class ProductCardAdapter extends RecyclerView.Adapter<ProductCardAdapter.
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             tvProductName = itemView.findViewById(R.id.product_title);
             tvPrice = itemView.findViewById(R.id.product_price);
             productprofile = itemView.findViewById(R.id.product_image);
@@ -76,12 +77,12 @@ public class ProductCardAdapter extends RecyclerView.Adapter<ProductCardAdapter.
         }
     }
     // convenience method for getting data at click position
-    ProductModel getItem(int id) {
+    public ProductModel getItem(int id) {
         return productList.get(id);
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    public void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
