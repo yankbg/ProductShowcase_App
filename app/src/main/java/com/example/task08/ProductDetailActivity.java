@@ -8,12 +8,20 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.task08.Models.ProductModel;
+import com.example.task08.Models.WishlistModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDetailActivity extends AppCompatActivity {
     ImageView productImgDetail;
     TextView productPriceDetail, productNamedeatail, productDescDetail;
     RatingBar productRatingDeatail;
     Button addWishBtn;
     String[] desc;
+    List<ProductModel> wishlist;
+    WishlistModel wishlistModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +36,22 @@ public class ProductDetailActivity extends AppCompatActivity {
         addWishBtn = findViewById(R.id.button_add_to_wishlist);
 
         setup();
+
+        addWishBtn.setOnClickListener(view -> addWishBtnClicked());
+    }
+
+    private void addWishBtnClicked() {
+        String nameDetail = getIntent().getStringExtra("product_name");
+        String priceDetail = getIntent().getStringExtra("product_price");
+        int ratingDetail = getIntent().getIntExtra("product_rating",0);
+        int imgDetail = getIntent().getIntExtra("product_image",0);
+        int position = getIntent().getIntExtra("product_position",0);
+        wishlist = new ArrayList<ProductModel>();
+        ProductModel productModel = new ProductModel(imgDetail,ratingDetail,nameDetail,priceDetail);
+        wishlist.add(productModel);
+        wishlistModel = new WishlistModel(wishlist);
+
+
     }
 
     private void setup() {
@@ -36,11 +60,11 @@ public class ProductDetailActivity extends AppCompatActivity {
         int ratingDetail = getIntent().getIntExtra("product_rating",0);
         int imgDetail = getIntent().getIntExtra("product_image",0);
         int position = getIntent().getIntExtra("product_position",0);
-
         productImgDetail.setImageResource(imgDetail);
         productNamedeatail.setText(nameDetail);
         productPriceDetail.setText(priceDetail);
         productRatingDeatail.setRating( ratingDetail);
         productDescDetail.setText(desc[position]);
     }
+
 }

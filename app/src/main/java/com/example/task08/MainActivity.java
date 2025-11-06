@@ -50,27 +50,18 @@ public class MainActivity extends AppCompatActivity implements ProductCardAdapte
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         myadapter.setClickListener(this);
         recyclerView.setAdapter(myadapter);
-//        recyclerView.setOnItemClickListener(this);
     }
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position,
-//                            long id) {
-//        Toast toast = Toast.makeText(getApplicationContext(),
-//                "Item " + (position + 1) + ": " + productList.get(position).getName(),
-//                Toast.LENGTH_SHORT);
-//        toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-//        toast.show();
-//    }
-@Override
-public void onItemClick(View view, int position) {
-//    Toast.makeText(this, "You clicked " + myadapter.getItem(position).getName() + " on row number " + position, Toast.LENGTH_SHORT).show();
-    Intent intent = new Intent(this,ProductDetailActivity.class);
-    intent.putExtra("product_name", myadapter.getItem(position).getName());
-    intent.putExtra("product_image", myadapter.getItem(position).getImgpath());
-    intent.putExtra("product_price", myadapter.getItem(position).getPrice());
-    intent.putExtra("product_rating", myadapter.getItem(position).getRating());
-    intent.putExtra("product_position", position);
-    startActivity(intent);
-}
+
+    @Override
+    public void onItemClick(View view, int position) {
+    //    Toast.makeText(this, "You clicked " + myadapter.getItem(position).getName() + " on row number " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,ProductDetailActivity.class);
+        intent.putExtra("product_name", myadapter.getItem(position).getName());
+        intent.putExtra("product_image", myadapter.getItem(position).getImgpath());
+        intent.putExtra("product_price", myadapter.getItem(position).getPrice());
+        intent.putExtra("product_rating", myadapter.getItem(position).getRating());
+        intent.putExtra("product_position", position);
+        startActivity(intent);
+    }
 
 }
