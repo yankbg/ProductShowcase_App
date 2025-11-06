@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">task08</string>
+    <string-array name="product_name">
+        <item>Mercedes benz SL 190</item>
+        <item>Mercedes benz SL 280</item>
+        <item>Mercedes benz SL 300</item>
+        <item>Mercedes benz SL 350</item>
+        <item>Mercedes benz SL 1998-500</item>
+        <item>Mercedes benz SL 2002-500</item>
+        <item>Mercedes benz SL R231</item>
+        <item>Mercedes benz SL 63</item>
+    </string-array>
+    <string-array name="product_price">
+        <item>$150,000</item>
+        <item>$100,000</item>
+        <item>$2,000,000</item>
+        <item>$60,000</item>
+        <item>$40,000</item>
+        <item>$47,000</item>
+        <item>$240,000</item>
+        <item>$200,000</item>
+    </string-array>
+    <integer-array name="product_rating">
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+    </integer-array>
+
+</resources>
