@@ -2,11 +2,13 @@ package com.example.task08;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.task08.Models.ProductModel;
 import com.example.task08.Models.WishlistModel;
@@ -48,8 +50,23 @@ public class ProductDetailActivity extends AppCompatActivity {
         int position = getIntent().getIntExtra("product_position",0);
         wishlist = new ArrayList<ProductModel>();
         ProductModel productModel = new ProductModel(imgDetail,ratingDetail,nameDetail,priceDetail);
-        wishlist.add(productModel);
-        wishlistModel = new WishlistModel(wishlist);
+//        wishlist.add(productModel);
+//        wishlistModel = new WishlistModel(wishlist);
+//        Toast.makeText(this,"product added sucessfully in wishlist",Toast.LENGTH_SHORT).show();
+//        Intent i = new Intent(this,WishlistActivity.class);
+//        startActivity(i);
+
+
+        if (!wishlist.contains(productModel)) {
+            wishlist.add(productModel);  // Add product to wishlist data source
+            wishlistModel = (WishlistModel) WishlistModel.getInstance().getWishlist();
+//            notifyDataSetChanged(); // Refresh if necessary
+            Intent i = new Intent(this,WishlistActivity.class);
+            startActivity(i);
+            Toast.makeText(this, productModel.getName() + " added to wishlist", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, productModel.getName() + " is already in wishlist", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
